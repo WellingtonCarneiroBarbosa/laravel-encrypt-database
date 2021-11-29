@@ -1,0 +1,41 @@
+{
+    "name": "wellingtoncarneirobarbosa/laravel-encrypt-database",
+    "description": "Auto Encrypt and Decrypt Database through Eloquent",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Wellington Barbosa",
+        "email": "wellingtoncarneirobarbosa.dev@gmail.com"
+      }
+    ],
+    "require": {
+        "illuminate/database": "^8.73"
+    },
+    "autoload": {
+      "psr-4": {
+        "WellingtonCarneiroBarbosa\\EncryptDatabase\\": "src"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+          "WellingtonCarneiroBarbosa\\EncryptDatabase\\Tests\\": "tests",
+          "WellingtonCarneiroBarbosa\\EncryptDatabase\\Tests\\Database\\Factories\\": "tests/database/factories"
+      }
+    },
+    "require-dev": {
+      "orchestra/testbench": "^6.0",
+      "phpunit/phpunit": "^9.4"
+    },
+    "extra": {
+      "laravel": {
+          "providers": [
+              "WellingtonCarneiroBarbosa\\EncryptDatabase\\Providers\\EncryptDatabaseServiceProvider"
+          ]
+      }
+    },
+    "scripts": {
+      "test": "vendor/bin/phpunit",
+      "test-f": "vendor/bin/phpunit --filter"
+    }
+  }
