@@ -30,7 +30,7 @@
     "extra": {
       "laravel": {
           "providers": [
-              "WellingtonCarneiroBarbosa\\EncryptDatabase\\Providers\\EncryptDatabaseServiceProvider"
+              "WellingtonCarneiroBarbosa\\EncryptDatabase\\Providers\\EncryptDatabaseProvider"
           ]
       }
     },
