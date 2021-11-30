@@ -1,5 +1,5 @@
 # Laravel Encrypt Database
-Automatic Encrypt and Decrypt your database data. Tested and used on Laravel 8. I'm building yet automated tests
+Automatic Encrypt and Decrypt your database data. Tested and used on Laravel 8. I'm yet building automated tests
 
 ## Requirements
 Laravel ^8.0
