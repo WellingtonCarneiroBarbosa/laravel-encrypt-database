@@ -7,22 +7,11 @@ use WellingtonCarneiroBarbosa\EncryptDatabase\Builders\EncryptionEloquentBuilder
 
 trait EncryptableModel
 {
-    function __construct() {
-        $this->enableEncryption = config('database_encryption.enable_encryption');
-    }
-
     // Extend EncryptionEloquentBuilder
     public function newEloquentBuilder($query)
     {
         return new EncryptionEloquentBuilder($query);
     }
-
-    /**
-     * If should enable encryptation
-     *
-     * @var boolean
-     */
-    public $enableEncryption = true;
 
     /**
      * @return array
@@ -39,7 +28,7 @@ trait EncryptableModel
      * @return boolean
      */
     public function isEncryptable($attribute_key) {
-        if($this->enableEncryption){
+        if(config('database_encryption.enable_encryption')) {
             return in_array($attribute_key, $this->encryptable);
         }
 
