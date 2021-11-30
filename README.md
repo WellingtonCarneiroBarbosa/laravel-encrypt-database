@@ -32,6 +32,9 @@ php artisan vendor:publish --tag=laravel-database-encryption
 
 ## Usage
 
+Note the key used to encrypt your data is your app_key, so keep it in a secure place.
+If you loose it, you will lose all your database data.
+
 It is highly recommended to alter your column types to ```TEXT``` or ```LONGTEXT```
 
 
