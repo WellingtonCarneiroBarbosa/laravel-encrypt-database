@@ -4,7 +4,7 @@ Automatic Encrypt and Decrypt your database data. Tested and used on Laravel 8. 
 ## Important
 Note the key used to encrypt your data is your `app_key`, so keep it in a secure place.
 
-If you loose it, you will lose all your database data.
+If you lose it, you will lose all your database data.
 
 <br>
 
