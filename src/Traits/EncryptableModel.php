@@ -1,28 +1,21 @@
 <?php
 
-namespace WellingtonCarneiroBarbosa\EncryptDatabase\Models;
+namespace WellingtonCarneiroBarbosa\EncryptDatabase\Traits;
 
-use Illuminate\Database\Eloquent\Model as EloquentModel;
 use WellingtonCarneiroBarbosa\EncryptDatabase\Encrypter;
-use WellingtonCarneiroBarbosa\EncryptDatabase\Traits\HasEncryptedAttributes;
+use WellingtonCarneiroBarbosa\EncryptDatabase\Builders\EncryptionEloquentBuilder;
 
-class EncryptableModel extends EloquentModel
+trait EncryptableModel
 {
-    use HasEncryptedAttributes;
+    function __construct() {
+        $this->enableEncryption = config('database_encryption.enable_encryption');
+    }
 
-    /**
-     * If attribute mutate should be skipped
-     *
-     * @var boolean
-     */
-    public $preventAttrMutator = false;
-
-     /**
-     * If attribute getter should be skipped
-     *
-     * @var boolean
-     */
-    public $preventAttrGetter = false;
+    // Extend EncryptionEloquentBuilder
+    public function newEloquentBuilder($query)
+    {
+        return new EncryptionEloquentBuilder($query);
+    }
 
     /**
      * If should enable encryptation
@@ -100,5 +93,49 @@ class EncryptableModel extends EloquentModel
         }
 
         return $value;
+    }
+
+    // -----------------------------
+    // Attributes modifiers
+    // -----------------------------
+    public function setAttribute($key, $value)
+    {
+        if (! $this->hasSetMutator($key)) {
+            $value = $this->encrypt($key, $value);
+        }
+
+        return parent::setAttribute($key, $value);
+    }
+
+    /**
+     * Get an attribute from the model.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function getAttribute($key)
+    {
+        return parent::getAttribute($key);
+    }
+
+    /**
+     * Get a plain attribute (not a relationship).
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function getAttributeValue($key) {
+        return $this->transformModelValue($key, $this->getAttributeFromArray($key));
+    }
+
+    /**
+     * Get an attribute from the $attributes array.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    protected function getAttributeFromArray($key)
+    {
+        return $this->decrypt($key, $this->getAttributes()[$key] ?? null);
     }
 }

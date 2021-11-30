@@ -24,12 +24,9 @@ class EncryptDatabaseProvider extends ServiceProvider
     {
         $this->bootValidators();
 
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                EncryptModel::class,
-                DecryptModel::class
-            ]);
-        }
+        $this->publishes([
+            __DIR__ . '/../Config/config.php' => config_path('database_encryption.php'),
+        ], 'config');
     }
 
     /**
@@ -39,9 +36,8 @@ class EncryptDatabaseProvider extends ServiceProvider
      */
     public function register()
     {
-        
+        $this->mergeConfigFrom(__DIR__.'/../Config/config.php', 'database_encryption');
     }
-
 
     private function bootValidators()
     {
