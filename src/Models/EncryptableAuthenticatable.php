@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace WellingtonCarneiroBarbosa\EncryptDatabase\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
