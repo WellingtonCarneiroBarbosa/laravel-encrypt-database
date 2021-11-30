@@ -10,6 +10,7 @@ Automatic Encrypt and Decrypt your database data. Tested and used on Laravel 8. 
 
 ## Requirements
 Laravel >= 8.0
+<br>
 PHP >= 7.4
 
 ## Installing
