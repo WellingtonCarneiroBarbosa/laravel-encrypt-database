@@ -52,16 +52,19 @@ class User extends Authenticable
 }
 ```
 
+<br>
 Note if you have a mutator on your model like "setNameAttribute" you should implement manually the encrypt method
 
 ```
-public function setNameAttribute(string $value) {
+public function setNameAttribute(string $value)
+{
   $value = ucwords($value);
   
   $this->attributes['name'] = $this->encrypt('name', $value);
 }
 ```
 
+<br>
 You also should implement manually decrypt method if you have an acessor method
 
 ```
