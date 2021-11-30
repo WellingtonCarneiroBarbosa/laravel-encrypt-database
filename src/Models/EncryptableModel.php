@@ -46,6 +46,12 @@ class EncryptableModel extends EloquentModel
         return $this->encryptable;
     }
 
+    /**
+     * Checks if the attribute is encryptable
+     *
+     * @param string $attribute_key
+     * @return boolean
+     */
     public function isEncryptable($attribute_key) {
         if($this->enableEncryption){
             return in_array($attribute_key, $this->encryptable);
@@ -54,6 +60,13 @@ class EncryptableModel extends EloquentModel
         return false;
     }
 
+    /**
+     * Decrypt a given value
+     *
+     * @param string $attribute_key
+     * @param mixed $value
+     * @return mixed
+     */
     public function decrypt($attribute_key, $value)
     {
         if($this->isEncryptable($attribute_key)) {
@@ -71,14 +84,19 @@ class EncryptableModel extends EloquentModel
         return $value;
     }
 
+    /**
+     * Encrypt a given value
+     *
+     * @param string $attribute_key
+     * @param mixed $value
+     * @return mixed
+     */
     public function encrypt($attribute_key, $value)
     {
-        if($this->isEncryptable($attribute_key)
-            && $value
-            && (!is_null($value))
-            && $value != ''
-        ) {
-            return Encrypter::encrypt($value);
+        if($this->isEncryptable($attribute_key)) {
+            if($value && (!is_null($value)) && $value != '') {
+                return Encrypter::encrypt($value);
+            }
         }
 
         return $value;
