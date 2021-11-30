@@ -81,9 +81,11 @@ You also should implement manually decrypt method if you have an acessor method
 ```
 public function getNameAttribute()
 {
-  $value = strtolower($this->attributes['name']);
+  $decrypted = $this->decrypt('name', $this->attributes['name']);
+
+  $value = strtolower($decrypted);
   
-  return $this->decrypt('name', $value);
+  return $value;
 }
 ```
 <br>
