@@ -25,6 +25,11 @@ Add the service provider on your providers list config/app.php:168
 WellingtonCarneiroBarbosa\EncryptDatabase\Providers\EncryptDatabaseProvider::class,
 ```
 
+Publish the config file
+```
+php artisan vendor:publish --tag=laravel-database-encryption
+```
+
 ## Usage
 
 It is highly recommended to alter your column types to ```TEXT``` or ```LONGTEXT```
