@@ -41,7 +41,7 @@ php artisan vendor:publish --tag=laravel-database-encryption
 
 ## Usage
 
-Just use the trait on yours encryptable models and list the encryptable fields.
+Just use the trait on yours encryptables models and list the encryptable fields.
 ```
 use WellingtonCarneiroBarbosa\EncryptDatabase\Traits\EncryptableModel;
 
