@@ -7,7 +7,7 @@ trait HasEncryptedAttributes
     public function setAttribute($key, $value)
     {
         if ($this->isEncryptable($key) && ! $this->hasSetMutator($key)) {
-            $value = $this->encrypt($value);
+            $value = $this->encrypt($key, $value);
         }
 
         return parent::setAttribute($key, $value);

@@ -71,48 +71,16 @@ class EncryptableModel extends EloquentModel
         return $value;
     }
 
-    public function encrypt($value)
+    public function encrypt($attribute_key, $value)
     {
-        if($value && (!is_null($value)) && $value != '') {
+        if($this->isEncryptable($attribute_key)
+            && $value
+            && (!is_null($value))
+            && $value != ''
+        ) {
             return Encrypter::encrypt($value);
         }
 
         return $value;
-    }
-
-    public function encryptAttributesOnCreating()
-    {
-        if($this->enableEncryption) {
-            $attributes = $this->getEncryptableAttributes();
-
-            foreach($attributes as $att) {
-                $value = $this->attributes[$att] ?? '';
-
-                if($value && (!is_null($value)) && $value != '') {
-                    $this->preventAttrMutator = true;
-                    $this->$att = $this->encrypt($value);
-                }
-            }
-        }
-    }
-
-    public function encryptAttributesOnUpdating()
-    {
-        if($this->enableEncryption) {
-            $attributes = $this->getEncryptableAttributes();
-
-            foreach($attributes as $att) {
-                if($this->isDirty($att)){
-                    // original modified attribute
-                    $value = $this->attributes[$att] ?? '';
-
-                    if($value && (!is_null($value)) && $value != '') {
-                        $this->preventAttrMutator = true;
-                        $this->$att = $this->encrypt($value);
-                    }
-                }
-
-            }
-        }
     }
 }
