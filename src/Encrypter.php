@@ -6,6 +6,10 @@ class Encrypter
 {
     private static $method = 'aes-128-ecb';
 
+    function __construct() {
+        self::$method = config('database_encryption.encryption_method');
+    }
+
     /**
      * @param string $value
      * 
