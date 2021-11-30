@@ -2,11 +2,11 @@
 Automatic Encrypt and Decrypt your database data. Tested and used on Laravel 8. I'm yet building the tests.
 
 ## Features
-    - Minimal configuration
-    - Encrypt and Decrypt database fields easily
-    - Include searching encrypted data using the following: whereEncrypted and orWhereEncrypted
-    - Include unique_encrypted, exists_encrypted rules 
-    - Uses openssl for encrypting and decrypting fields
+- Minimal configuration
+- Encrypt and Decrypt database fields easily
+- Include searching encrypted data using the following: whereEncrypted and orWhereEncrypted
+- Include unique_encrypted, exists_encrypted rules 
+- Uses openssl for encrypting and decrypting fields
 
 ## Requirements
 Laravel >= 8.0
