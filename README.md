@@ -8,7 +8,7 @@ If you loose it, you will lose all your database data.
 
 <br>
 
-It is highly recommended to alter your column types to `TEXT` or `LONGTEXT`
+It is highly recommended to alter your encrypted column types to `TEXT` or `LONGTEXT`
 
 ## Features
 - Minimal configuration
