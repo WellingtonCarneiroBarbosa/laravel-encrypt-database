@@ -26,7 +26,7 @@ class EncryptDatabaseProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../Config/config.php' => config_path('database_encryption.php'),
-        ], 'config');
+        ], 'laravel-database-encryption');
     }
 
     /**
