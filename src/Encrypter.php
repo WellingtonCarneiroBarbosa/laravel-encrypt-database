@@ -1,6 +1,6 @@
 <?php
 
-namespace WellingtonCraneiroBarbosa\EncryptDatabase;
+namespace WellingtonCarneiroBarbosa\EncryptDatabase;
 
 class Encrypter
 {

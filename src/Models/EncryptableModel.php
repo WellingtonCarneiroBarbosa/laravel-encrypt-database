@@ -3,7 +3,7 @@
 namespace WellingtonCarneiroBarbosa\EncryptDatabase\Models;
 
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use WellingtonCraneiroBarbosa\EncryptDatabase\Encrypter;
+use WellingtonCarneiroBarbosa\EncryptDatabase\Encrypter;
 use WellingtonCarneiroBarbosa\EncryptDatabase\Traits\HasEncryptedAttributes;
 
 class EncryptableModel extends EloquentModel
