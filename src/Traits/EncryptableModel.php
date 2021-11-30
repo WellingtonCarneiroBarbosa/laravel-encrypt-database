@@ -25,13 +25,6 @@ trait EncryptableModel
     public $enableEncryption = true;
 
     /**
-     * The attributes that should be encrypteds.
-     *
-     * @var array
-     */
-    protected $encryptable = [];
-
-    /**
      * @return array
      */
     public function getEncryptableAttributes()
