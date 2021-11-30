@@ -1,6 +1,10 @@
 # Laravel Encrypt Database
 Automatic Encrypt and Decrypt your database data. Tested and used on Laravel 8. I'm building yet automated tests
 
+## Requirements
+Laravel ^8.0
+PHP ^7.4
+
 ## Installing
 
 Install the package
@@ -36,14 +40,17 @@ List the encryptable fields
 * @var array
 */
 protected $encryptable = [
-    
+    'name',
+    'email,
+    'birth_date,
 ];
 ```
 
 Note if you have a mutator on your model like "setNameAttribute" you should implement manually the encrypt method
 
 ```
-public function setNameAttribute(string $value) {
+public function setNameAttribute(string $value)
+{
   $value = ucwords($value);
   
   $this->attributes['name'] = $this->encrypt('name', $value);
