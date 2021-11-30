@@ -82,4 +82,5 @@ public function getNameAttribute()
 
 ```
 
+<br>
 If you are validating your form data with 'unique' or 'exists' you should replace it to ```unique_encrypted``` and ```exists_encrypted``` respectively
