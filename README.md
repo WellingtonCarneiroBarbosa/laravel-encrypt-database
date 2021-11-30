@@ -29,17 +29,15 @@ WellingtonCarneiroBarbosa\EncryptDatabase\Providers\EncryptDatabaseProvider::cla
 It is highly recommended to alter your column types to ```TEXT``` or ```LONGTEXT```
 
 
-Replace your models. 
+Just use the trait on your encryptable models.
 ```
-use WellingtonCarneiroBarbosa\EncryptDatabase\Models\EncryptableAuthenticatable;
+use WellingtonCarneiroBarbosa\EncryptDatabase\Traits\EncryptableModel;
 
-class User extends EncryptableAuthenticatable {}
-```
-
-```
-use WellingtonCarneiroBarbosa\EncryptDatabase\Models\EncryptableModel;
-
-class Model extends EncryptableModel {}
+class User extends Authenticable
+{
+    Use HasFactory,
+        EncryptableModel;
+}
 ```
 
 List the encryptable fields
@@ -50,7 +48,9 @@ List the encryptable fields
 * @var array
 */
 protected $encryptable = [
-    
+    'name',
+    'email',
+    'birth_date',
 ];
 ```
 
