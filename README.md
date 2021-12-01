@@ -10,7 +10,6 @@ Note the key used to encrypt your data is your `app_key`, so keep it in a secure
 If you lose it, you will lose all your database data.
 
 <br>
-
 It is highly recommended to alter your encrypted column types to `TEXT` or `LONGTEXT`
 
 ## Features
