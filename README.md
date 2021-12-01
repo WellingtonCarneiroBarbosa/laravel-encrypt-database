@@ -2,14 +2,16 @@
 Automatic Encrypt and Decrypt your database data. Tested and used on Laravel 8. I'm yet building the tests.
 
 ## Important
-The $casts attribute is not available for encrypted fields yet.
-
-<br>
 Note the key used to encrypt your data is your `app_key`, so keep it in a secure place.
 
 If you lose it, you will lose all your database data.
 
 <br>
+
+The $casts attribute is not available for encrypted fields yet.
+
+<br>
+
 It is highly recommended to alter your encrypted column types to `TEXT` or `LONGTEXT`
 
 ## Features
