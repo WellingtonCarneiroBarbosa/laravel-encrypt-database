@@ -140,4 +140,24 @@ trait EncryptableModel
 
         return $encrypted_items;
     }
+
+    /**
+     * Encrypt an array
+     *
+     * @param array $items
+     * @return array
+     */
+    protected static function staticEncryptArray(array $items)
+    {
+        $encrypted_items = [
+
+        ];
+
+        foreach($items as $item)
+        {
+            array_push($encrypted_items, Encrypter::encrypt($item));
+        }
+
+        return $encrypted_items;
+    }
 }
