@@ -120,4 +120,24 @@ trait EncryptableModel
     {
         return $this->decrypt($key, $this->getAttributes()[$key] ?? null);
     }
+
+    /**
+     * Encrypt an array
+     *
+     * @param array $items
+     * @return array
+     */
+    protected function encryptArray(array $items)
+    {
+        $encrypted_items = [
+
+        ];
+
+        foreach($items as $item)
+        {
+            array_push($encrypted_items, Encrypter::encrypt($item));
+        }
+
+        return $encrypted_items;
+    }
 }
